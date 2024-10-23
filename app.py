@@ -314,8 +314,7 @@ async def show_attending_users(message: types.Message):
         return
 
     if attending_users:
-        user_names = [f"{idx + 1}.{user['first_name']} {user['last_name']}" for user in attending_users
-        for idx, user in enumerate(attending_users)]
+        user_names = [f"{user['first_name']} {user['last_name']}" for user in attending_users]
         try:
             await message.answer(f"Ishchi ro'yhati:\n" + "\n".join(user_names))
         except BotBlocked:
